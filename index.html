@@ -295,14 +295,8 @@
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                   <div class="accordion-body py-3">                  
-                    <div class="p-3 pb-md-4 mx-auto">
-                      <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contact Us">
-                      </div>
-                
-                      <span class="image-profile-photo mb-4" for="icon_upload">
-                        
+                    <div class="p-2 pb-md-4 mx-auto">
+                      <span class="image-profile-photo mb-4" for="icon_upload">                        
                         <label for="icon_upload">
                           <div class="download-photo">
                             <box-icon name="upload"></box-icon>
@@ -310,6 +304,11 @@
                         </label>
                         <input type="file" name="" id="icon_upload" style="display: none;">
                       </span>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                      </div>                
+                      
                 
                       <div class="row">
                         <label class="form-label text-secondary">Contact Number</label>
@@ -415,11 +414,6 @@
                 </h2>                
                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                   <div class="accordion-body py-3">
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Title</label>
-                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contact Us">
-                    </div>
-                  
                     <span class="image-profile-photo mb-4" for="icon_upload">
                       <div class="image-photo">
                         <img src="./images/pngwing.com (5).png" height="65px" width="65px" alt="Profile Photo">
@@ -430,7 +424,12 @@
                         </div>
                       </label>
                       <input type="file" name="" id="icon_upload" style="display: none;">
-                    </span>          
+                    </span>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Title</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                    </div>                  
+                            
                     <hr>
                     <div class="mb-3">
                       <label for="exampleFormControlTextarea1" class="form-label">Description</label>
@@ -486,26 +485,24 @@
                   </button>
                 </h2>
                 <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                  <div class="accordion-body py-3">
+                  <div class="accordion-body py-3">                   
                     <div class="p-3">
-                      <p id="addressList">
-                        Aryabhatta College, University of Delhi, Plot No 5, Benito Juarez Marg, South Campus, Anand Niketan, New Delhi, Delhi 110021
-                      </p>
+                      <div class="address-list">
+                        <!-- Address items will be added here dynamically -->
+                      </div>
+                      <div class="input-group input-group-merge">
+                        <span class="input-group-text">Add Address</span>
+                        <textarea class="form-control" aria-label="Add Address"></textarea>
+                      </div>
+                      <div class="mt-2">
+                        <button type="button" class="btn btn-primary" onclick="addAddress()">Add Address</button>
+                      </div>            
                     </div>
                     <div  class="map p-5">
                       <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.7041872015975!2d77.1585344752273!3d28.578644275694188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02ba9bcb0b23%3A0x17699e9de4def852!2sAryabhatta%20College%2C%20University%20Of%20Delhi!5e0!3m2!1sen!2sin!4v1695356662588!5m2!1sen!2sin"
                         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div class="p-3">
-                      <div class="address-list">
-                        <!-- Address items will be added here dynamically -->
-                      </div>
-                      <div class="mb-3">
-                        <input type="text" id="newAddress" class="form-control" placeholder="Add new address">
-                        <button type="button" class="btn btn-primary mt-2" onclick="addAddress()">Add Address</button>
-                      </div>
-                    </div>
+                    </div>                   
                   </div>
                 </div>
               </div>              
