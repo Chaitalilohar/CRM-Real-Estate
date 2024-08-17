@@ -129,12 +129,13 @@
                     <div class="d-flex">
                       <div class="flex-shrink-0 me-3">
                         <div class="avatar avatar-online">
-                          <img src="assets/img/avatars/1.png" alt="" class="w-px-40 h-auto rounded-circle">
+                          <img id="user-avatar" src="assets/img/avatars/1.png" alt="User Avatar" class="w-px-40 h-auto rounded-circle">
                         </div>
                       </div>
                       <div class="flex-grow-1">
-                        <span class="fw-medium d-block">John Doe</span>
-                        <small class="text-muted">Admin</small>
+                       
+                        <span id="user-name" class="fw-medium d-block"  style="font-size: 1.0rem; margin-top:1vh;"></span>
+                        
                       </div>
                     </div>
                   </a>
@@ -148,12 +149,13 @@
                 </li>
                 <li><div class="dropdown-divider"></div></li>
                 <li>
-                  <a class="dropdown-item" href="javascript:void(0);">
+                  <a class="dropdown-item" href="javascript:void(0);" onclick="logoutUser()">
                     <i class="bx bx-power-off me-2"></i>
                     <span class="align-middle">Log Out</span>
                   </a>
                 </li>
               </ul>
+              
             </li>
             <!--/ User -->
           </ul>
@@ -783,6 +785,32 @@
             footer.style.position = 'relative';
         }
     }
+    document.addEventListener('DOMContentLoaded', function() {
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+  if (loggedInUser) {
+    document.getElementById('user-name').textContent = loggedInUser.username || loggedInUser.email;
+    document.getElementById('user-role').textContent = loggedInUser.role || 'User'; // Default to 'User' if no role is specified
+    document.getElementById('user-avatar').src = loggedInUser.avatar || 'assets/img/avatars/default.png'; // Default avatar if not specified
+  }
+});
+
+function logoutUser() {
+  localStorage.removeItem('loggedInUser');
+  window.location.href = 'login.html'; // Redirect to login page after logout
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+  if (!loggedInUser) {
+    window.location.href = 'login.html'; // Redirect to login page if not logged in
+  } else {
+    document.getElementById('user-name').textContent = loggedInUser.username || loggedInUser.email;
+    document.getElementById('user-role').textContent = loggedInUser.role || 'User';
+    document.getElementById('user-avatar').src = loggedInUser.avatar || 'assets/img/avatars/default.png';
+  }
+});
+
 </script>
 </body>
 </html>
