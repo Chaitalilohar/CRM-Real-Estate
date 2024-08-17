@@ -103,25 +103,29 @@
 
   <!-- Login Script -->
   <script>
-    function loginUser(event) {
-      event.preventDefault(); // Prevent form submission
+   function loginUser(event) {
+  event.preventDefault(); // Prevent form submission
 
-      const usernameOrEmail = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+  const usernameOrEmail = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
-      const users = JSON.parse(localStorage.getItem('users')) || [];
+  const users = JSON.parse(localStorage.getItem('users')) || [];
 
-      // Find user by username or email
-      const user = users.find(user => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password);
+  // Find user by username or email
+  const user = users.find(user => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password);
 
-      if (user) {
-        alert('Login successful!');
-        // Redirect to a dashboard or homepage
-        window.location.href = 'index.html'; // Example redirection
-      } else {
-        alert('Invalid username/email or password.');
-      }
-    }
-  </script>
+  if (user) {
+    alert('Login successful!');
+    
+    // Store the logged-in user in localStorage
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
+    
+    // Redirect to the dashboard or homepage
+    window.location.href = 'index.html'; // Example redirection
+  } else {
+    alert('Invalid username/email or password.');
+  }
+}
+</script>
 </body>
 </html>
