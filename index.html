@@ -796,21 +796,24 @@
 });
 
 function logoutUser() {
-  localStorage.removeItem('loggedInUser');
-  window.location.href = 'login.html'; // Redirect to login page after logout
+    localStorage.removeItem('loggedInUser');
+    window.location.href = 'login.html'; // Redirect to the login page
 }
-document.addEventListener('DOMContentLoaded', function() {
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
-  if (!loggedInUser) {
-    window.location.href = 'login.html'; // Redirect to login page if not logged in
-  } else {
-    document.getElementById('user-name').textContent = loggedInUser.username || loggedInUser.email;
-    document.getElementById('user-role').textContent = loggedInUser.role || 'User';
-    document.getElementById('user-avatar').src = loggedInUser.avatar || 'assets/img/avatars/default.png';
-  }
-});
+document.addEventListener("DOMContentLoaded", function() {
+    const userNameElement = document.getElementById('user-name');
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
 
+    if (user) {
+      // User is logged in, display their information
+      userNameElement.textContent = user.username || user.email;
+      document.getElementById('user-role').textContent = user.role || 'User'; // Assuming role is stored
+    } else {
+      // User is not logged in, display a default message
+      userNameElement.textContent = 'Guest';
+      document.getElementById('user-role').textContent = 'Visitor';
+    }
+  });
 </script>
 </body>
 </html>
